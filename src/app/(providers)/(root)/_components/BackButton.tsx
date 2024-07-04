@@ -8,9 +8,9 @@ function BackButton() {
   return (
     <button
       onClick={() => router.back()}
-      className="px-4 py-2 rounded bg-blue-600 text-white hover:brightness-115"
+      className="w-12 h-12 rounded-full bg-gray-400 text-white hover:brightness-125"
     >
-      뒤로가기
+      ←
     </button>
   );
 }

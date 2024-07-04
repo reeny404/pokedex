@@ -1,9 +1,10 @@
 import { Pokemon } from "@/types/Pokemon";
 import axios from "axios";
+import BackButton from "../../_components/BackButton";
 import MetaData from "../../_components/Metadata/Metadata";
+import PokedexCenter from "../../_components/pokedex/PokedexCenter";
 import PokedexLeft from "../../_components/pokedex/PokedexLeft";
 import PokedexRight from "../../_components/pokedex/PokedexRight";
-import PokedexCenter from "../../_components/pokedex/PokedexCenter";
 
 type Props = {
   params: { pokemonId: number };
@@ -33,6 +34,9 @@ async function PokemonDetailPage({ params: { pokemonId } }: Props) {
         <PokedexCenter />
         <PokedexRight pokemon={pokemon}></PokedexRight>
       </main>
+      <div className="min-w-10 h-5 fixed top-1/2 left-2">
+        <BackButton />
+      </div>
     </>
   );
 }
