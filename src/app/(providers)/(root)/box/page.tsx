@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 function PokemonBoxPage() {
   return (
     <>
-      <Header title="포켓몬 박스">
-        <button>login</button>
-      </Header>
+      <Header title="포켓몬 박스"></Header>
       <section className="text-center">
         <PokemonList />
       </section>
