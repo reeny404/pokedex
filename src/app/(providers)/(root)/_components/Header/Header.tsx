@@ -9,7 +9,7 @@ type HeaderProps = {
 
 function Header({ title, children }: HeaderProps) {
   return (
-    <header className="py-8 flex flex-row justify-between items-center">
+    <header className="p-4 flex flex-row justify-between items-center">
       <span className="relatve cursor-pointer">
         <Link href="/">
           <Image src={HomeIcon} alt="홈 아이콘" width={30} height={30} />

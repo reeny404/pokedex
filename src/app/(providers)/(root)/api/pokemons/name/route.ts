@@ -12,11 +12,11 @@ export const GET = async () => {
 
     const responses = await Promise.all(allPokemonPromises);
     const names = responses.map(response => {
-      const { id, names } = response.data;
+      const { names } = response.data;
       const { name: koreanName } = names.find(
         (name: any) => name.language.name === "ko"
       );
-      return { id, koreanName };
+      return koreanName;
     })
 
     return NextResponse.json(names);

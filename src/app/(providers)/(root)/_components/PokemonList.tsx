@@ -11,7 +11,7 @@ import PokemonItem from "./PokemonItem";
 
 function PokemonList() {
   const [pageNo, setPageNo] = useState<number>(0);
-  const [names, setNames] = useState({});
+  const [names, setNames] = useState([]);
 
   const { data: response, isSuccess } = useQuery({
     queryKey: ["pokemons"],
@@ -21,10 +21,10 @@ function PokemonList() {
 
   useEffect(() => {
     (async () => {
-      const nameMap = await axios.get(
+      const { data } = await axios.get(
         "http://localhost:3000/api/pokemons/name"
       );
-      setNames(nameMap);
+      setNames(data);
     })();
   }, [isSuccess]);
 
@@ -69,7 +69,11 @@ function PokemonList() {
         {pokemons.map((pokemon) => (
           <li key={pokemon.id}>
             <Link href={`/box/${pokemon.id}`}>
-              <PokemonItem pokemon={pokemon} />
+              <PokemonItem
+                pokemon={pokemon}
+                name={names[pokemon.id - 1]}
+                rotatable
+              />
             </Link>
           </li>
         ))}
