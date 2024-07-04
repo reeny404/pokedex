@@ -1,7 +1,7 @@
 "use client";
 
 import { Pokemon } from "@/types/Pokemon";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,10 +13,16 @@ function PokemonList() {
   const [pageNo, setPageNo] = useState<number>(0);
   const [names, setNames] = useState([]);
 
-  const { data: response, isSuccess } = useQuery({
-    queryKey: ["pokemons"],
+  const {
+    data: response,
+    isLoading,
+    isSuccess,
+  } = useQuery({
+    queryKey: ["pokemons", pageNo],
     queryFn: () =>
       axios.get(`http://localhost:3000/api/pokemons?pageNo=${pageNo}`),
+    placeholderData: keepPreviousData,
+    retry: 3,
   });
 
   useEffect(() => {
@@ -28,7 +34,7 @@ function PokemonList() {
     })();
   }, [isSuccess]);
 
-  if (!isSuccess) {
+  if (isLoading) {
     return (
       <Image
         src={loadingGif}
@@ -37,6 +43,10 @@ function PokemonList() {
         alt="로딩 중..."
         className="absolute top-[calc(50%-25px)] left-[calc(50%-25px)]"
       />
+    );
+  } else if (!isSuccess) {
+    return (
+      <div>일시적인 오류로 데이터를 불러오지 못했습니다. 재시도해주세요</div>
     );
   }
 
