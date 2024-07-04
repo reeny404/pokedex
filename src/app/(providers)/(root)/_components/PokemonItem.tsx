@@ -17,9 +17,9 @@ function PokemonItem({ pokemon, name, rotatable }: PokemonBoxProps) {
       </span>
       {rotatable ? (
         <span className="w-full min-h-28 p-5 relative group aspect-square">
-          <span className="relative left-6 bottom-6 -rotate-45 text-red-700 invisible group-hover:visible">
+          <div className="relative left-6 bottom-4 rotate-12 text-red-700 invisible group-hover:visible">
             let{"'"}s go!
-          </span>
+          </div>
           <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
