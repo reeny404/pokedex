@@ -2,32 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer utilities {}
+
+/* @font-face {
+    font-family : 'PokemonGSK';
+    font-weight : 500;
+    font-style  : normal;
+    font-display: swap;
+    unicode-range: U+0041-005A,
+        U+0061-007A;
+
+    src: url(../../fonts/PokemonGSK.eot);
+    src: url(../../fonts/PokemonGSK.eot?#iefix) format('embedded-opentype'),
+        url(../../fonts/PokemonGSK.woff) format('woff'),
+        url(../../fonts/PokemonGSK.ttf) format('truetype');
+} */
+
+@font-face {
+    font-family: 'DungGeunMo';
+    src        : url(../../fonts/NeoDunggeunmoPro-Regular.woff) format('woff');
+    font-weight: bold;
+    font-style : normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+* {
+    font-family: 'DungGeunMo', Sans-serif;
 }
