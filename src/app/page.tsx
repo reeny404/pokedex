@@ -6,19 +6,21 @@ import Header from "./(providers)/(root)/_components/Header/Header";
 
 export default function HomePage() {
   return (
-    <main className="p-6">
-      <Header title="오박사의 인사" hidden>
+    <>
+      <Header title="오박사의 인사">
         <Link href="/box">건너뛰기</Link>
       </Header>
-      <span className="relative py-10 flex flex-col justify-center items-center">
-        <Image
-          src={professorOak}
-          width={professorOak.width}
-          height={professorOak.height}
-          alt="professorOak : 오박사"
-        />
-      </span>
-      <IntroMessageBox />
-    </main>
+      <main className="px-6 pb-4 flex flex-col justify-center items-center">
+        <span className="pt-20 pb-10 flex flex-col justify-center items-center">
+          <Image
+            src={professorOak}
+            width={professorOak.width}
+            height={professorOak.height}
+            alt="professorOak : 오박사"
+          />
+        </span>
+        <IntroMessageBox />
+      </main>
+    </>
   );
 }
