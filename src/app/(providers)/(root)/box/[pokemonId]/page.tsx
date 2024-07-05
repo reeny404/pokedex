@@ -8,17 +8,11 @@ import PokedexRight from "../../_components/pokedex/PokedexRight";
 
 type Props = {
   params: { pokemonId: number };
-  // searchParams: { [key: string]: string | undefined };
 };
-
-// interface PokemonBoxProps {
-//   pokemon: Pokemon;
-//   name: string | undefined;
-// }
 
 async function PokemonDetailPage({ params: { pokemonId } }: Props) {
   const { data: pokemon } = await axios.get<Pokemon>(
-    `http://localhost:3000/api/pokemons/${pokemonId}`
+    `${process.env.NEXT_PUBLIC_HOST}/api/pokemons/${pokemonId}`
   );
 
   const { id, korean_name: koreanName } = pokemon;

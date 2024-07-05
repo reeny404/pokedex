@@ -5,11 +5,16 @@ import HomeIcon from "./home.svg";
 
 type HeaderProps = {
   title: string;
+  hidden?: boolean;
 } & PropsWithChildren;
 
-function Header({ title, children }: HeaderProps) {
+function Header({ title, hidden, children }: HeaderProps) {
   return (
-    <header className="p-4 flex flex-row justify-between items-center">
+    <header
+      className={`p-4 flex flex-row justify-between items-center ${
+        hidden && "hidden"
+      }`}
+    >
       <span className="relatve cursor-pointer">
         <Link href="/">
           <Image src={HomeIcon} alt="홈 아이콘" width={30} height={30} />

@@ -20,7 +20,9 @@ function PokemonList() {
   } = useQuery({
     queryKey: ["pokemons", pageNo],
     queryFn: () =>
-      axios.get(`http://localhost:3000/api/pokemons?pageNo=${pageNo}`),
+      axios.get(
+        `${process.env.NEXT_PUBLIC_HOST}/api/pokemons?pageNo=${pageNo}`
+      ),
     placeholderData: keepPreviousData,
     retry: 3,
   });
@@ -28,7 +30,7 @@ function PokemonList() {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        "http://localhost:3000/api/pokemons/name"
+        `${process.env.NEXT_PUBLIC_HOST}/api/pokemons/name`
       );
       setNames(data);
     })();
