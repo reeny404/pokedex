@@ -1,2 +1,2 @@
 type introType = "text" | "confirm";
-export type introMessage = { type: introType; text: string };
+export type introMessage = { type: introType; text: string, lottieJson?: object };
